@@ -4,7 +4,7 @@
 #
 Name     : R-ModelMetrics
 Version  : 1.2.2
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/ModelMetrics_1.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ModelMetrics_1.2.2.tar.gz
 Summary  : Rapid Calculation of Model Metrics
