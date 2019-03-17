@@ -1,4 +1,7 @@
 1.2.2
 R-Rcpp
+R-assertthat
+R-cli
 R-data.table
 R-rlang
+R-withr

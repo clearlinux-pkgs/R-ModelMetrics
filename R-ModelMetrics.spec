@@ -4,19 +4,22 @@
 #
 Name     : R-ModelMetrics
 Version  : 1.2.2
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/ModelMetrics_1.2.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ModelMetrics_1.2.2.tar.gz
 Summary  : Rapid Calculation of Model Metrics
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-ModelMetrics-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-data.table
-Requires: R-rlang
+Requires: R-assertthat
+Requires: R-cli
+Requires: R-withr
 BuildRequires : R-Rcpp
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-data.table
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -42,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541283691
+export SOURCE_DATE_EPOCH=1552835664
 
 %install
-export SOURCE_DATE_EPOCH=1541283691
+export SOURCE_DATE_EPOCH=1552835664
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,8 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ModelMetrics|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ModelMetrics || :
 
 
 %files
@@ -111,7 +113,11 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ModelMetrics/help/paths.rds
 /usr/lib64/R/library/ModelMetrics/html/00Index.html
 /usr/lib64/R/library/ModelMetrics/html/R.css
-/usr/lib64/R/library/ModelMetrics/libs/symbols.rds
+/usr/lib64/R/library/ModelMetrics/tests/testthat.R
+/usr/lib64/R/library/ModelMetrics/tests/testthat/test_auc.R
+/usr/lib64/R/library/ModelMetrics/tests/testthat/test_calculations.R
+/usr/lib64/R/library/ModelMetrics/tests/testthat/test_errors.R
+/usr/lib64/R/library/ModelMetrics/tests/testthat/test_logloss.R
 
 %files lib
 %defattr(-,root,root,-)
